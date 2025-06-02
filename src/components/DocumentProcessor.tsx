@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import FileUpload from './FileUpload';
 import ActionButtons from './ActionButtons';
@@ -54,11 +53,11 @@ const DocumentProcessor = () => {
   };
 
   const handleTranslate = () => {
-    sendFileToWebhook('http://localhost:5678/webhook-test/TranslatorAIAgent', 'translation');
+    sendFileToWebhook('http://localhost:5678/webhook/TranslatorAIAgent', 'translation');
   };
 
   const handleSummarize = () => {
-    sendFileToWebhook('http://localhost:5678/webhook-test/SummarizerAIAgent', 'summary');
+    sendFileToWebhook('http://localhost:5678/webhook/SummarizerAIAgent', 'summary');
   };
 
   return (

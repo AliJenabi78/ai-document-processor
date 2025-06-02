@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Send, MessageCircle, Loader2 } from 'lucide-react';
 
@@ -29,7 +28,7 @@ const ChatInterface: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5678/webhook-test/ChatbotAIAgent', {
+      const response = await fetch('http://localhost:5678/webhook/Chatbot-aiagent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
