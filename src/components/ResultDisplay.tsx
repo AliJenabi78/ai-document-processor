@@ -28,6 +28,9 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result }) => {
 
   const Icon = icon;
 
+  // Check if content contains Persian/Arabic characters
+  const hasPersianContent = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(result.content);
+
   return (
     <div className={`${bgColor} ${borderColor} border rounded-lg p-6`}>
       <div className="flex items-center justify-between mb-4">
@@ -53,7 +56,19 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ result }) => {
         </button>
       </div>
       <div className="bg-white rounded-lg p-4 border">
-        <pre className="whitespace-pre-wrap text-gray-800 font-sans leading-relaxed">
+        <pre 
+          className={`whitespace-pre-wrap text-gray-800 leading-relaxed ${
+            hasPersianContent 
+              ? 'text-right font-normal text-lg' 
+              : 'font-sans'
+          }`}
+          style={{
+            direction: hasPersianContent ? 'rtl' : 'ltr',
+            fontFamily: hasPersianContent 
+              ? '"Tahoma", "Arial Unicode MS", "Noto Sans Arabic", sans-serif' 
+              : 'inherit'
+          }}
+        >
           {result.content}
         </pre>
       </div>
