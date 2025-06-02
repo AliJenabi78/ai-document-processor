@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import { Send, MessageCircle, Loader2 } from 'lucide-react';
+import { ProcessedResult } from './DocumentProcessor';
 
 interface ChatMessage {
   id: string;
@@ -8,7 +10,11 @@ interface ChatMessage {
   timestamp: Date;
 }
 
-const ChatInterface: React.FC = () => {
+interface ChatInterfaceProps {
+  result: ProcessedResult;
+}
+
+const ChatInterface: React.FC<ChatInterfaceProps> = ({ result }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +39,11 @@ const ChatInterface: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: userMessage.content }),
+        body: JSON.stringify({ 
+          message: userMessage.content,
+          documentContent: result.content,
+          documentType: result.type
+        }),
       });
 
       if (!response.ok) {

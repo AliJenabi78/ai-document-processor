@@ -91,7 +91,7 @@ const DocumentProcessor = () => {
           {result && (
             <>
               <ResultDisplay result={result} />
-              <ChatInterface />
+              <ChatInterface result={result} />
             </>
           )}
         </div>
