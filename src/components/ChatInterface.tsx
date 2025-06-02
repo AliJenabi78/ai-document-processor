@@ -28,7 +28,7 @@ const ChatInterface: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5678/webhook/Chatbot-aiagent', {
+      const response = await fetch('http://localhost:5678/webhook-test/Chatbot-aiagent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

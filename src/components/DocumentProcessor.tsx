@@ -53,7 +53,7 @@ const DocumentProcessor = () => {
   };
 
   const handleTranslate = () => {
-    sendFileToWebhook('http://localhost:5678/webhook/TranslatorAIAgent', 'translation');
+    sendFileToWebhook('http://localhost:5678/webhook-test/TranslatorAIAgent', 'translation');
   };
 
   const handleSummarize = () => {
